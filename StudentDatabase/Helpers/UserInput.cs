@@ -45,8 +45,7 @@ namespace StudentDatabase.Helpers
 
                 else if (ReferenceEquals(null, user.currentStudent))
                 {
-                    user.currentStudent = students.FirstOrDefault(item => item.id == Convert.ToInt32(validEntry));
-                    Console.WriteLine($"You have chosen to view the information for {user.currentStudent.firstName} {user.currentStudent.lastName}");
+                    user.currentStudent = students.FirstOrDefault(item => item.id == Convert.ToInt32(validEntry));                    
                     redoLoop = false;
                 }
 
@@ -104,12 +103,13 @@ namespace StudentDatabase.Helpers
                 }
                 else
                 {
+                    Console.WriteLine();
 
                     switch (validWord)
                     {
                         case "hometown":
                         {
-                            Console.WriteLine($"{user.currentStudent.firstName} {user.currentStudent.lastName}'s home town is { user.currentStudent.hometown }");
+                            Console.WriteLine($"{user.currentStudent.firstName} {user.currentStudent.lastName}'s hometown is { user.currentStudent.hometown }");
                             break;
                         }
 
@@ -133,7 +133,7 @@ namespace StudentDatabase.Helpers
             char validAnswer;
 
             bool redoLoop = true;
-            bool continueExponent = false;
+            bool continueStudentDatabase = false;
 
             while (redoLoop)
             {
@@ -154,13 +154,13 @@ namespace StudentDatabase.Helpers
                         Console.WriteLine();
                         Console.WriteLine("You chose to continue with another student.");
                         Console.WriteLine();
-                        continueExponent = true;
+                        continueStudentDatabase = true;
                     }
                     else
                     {
                         Console.WriteLine();
                         Console.WriteLine($"Have a nice day. Goodbye.");
-                        continueExponent = false;
+                        continueStudentDatabase = false;
                     }
 
                     redoLoop = false;
@@ -168,7 +168,7 @@ namespace StudentDatabase.Helpers
 
             }
 
-            return continueExponent;
+            return continueStudentDatabase;
 
         }
 
